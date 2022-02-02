@@ -117,10 +117,3 @@ Nesta etapa foram realizados os seguintes procedimentos:
     </li>
 </ul>
 
-<p>
-
-</p>
-<p>
-
-</p>
-
