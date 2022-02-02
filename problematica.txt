@@ -1,0 +1,9 @@
+O **DataHealthcare Group** é um grande Conglomerado Internacional da área da saúde. Atualmente, possui cerca de 100 mil funcionários, e presta serviços de saúde para 75 milhões de pessoas, atuando em 50 estados americanos e 17 nações ao redor do mundo. \n",
+Grupo atua em diferentes mercados, tais como **Hospitais, planos de saúde** e benefícios para empregados, militares e aposentados, sistemas de tecnologia da informação em saúde, e programas de saúde para o setor público, dentre outros. \n",
+Em 2021, foi **a maior empresa do ramo de saúde do mercado americano,** a frente de empresas como WellPoint Inc., CIGNA Health Insurance Company entre outras. \n",
+Você foi **contratado como Cientista de Dados para, em conjunto com a junta de Nefrologistas, desenvolver um Sistema de Previsão de Doenças Renais** para auxiliar os médicos na identificação das doenças crônicas dos rins.\n",
+
+
+Neste ponto, seu objetivo inicial é discutir e entender quais são as variáveis que os Nefrologistas consideram as mais importantes para diagnosticar se um paciente possui Doença Renal. \n",
+É muito comum serem listadas dezenas quiçá centenas de variáveis que podem impactar direta ou indiretamente na ocorrência de doenças renais.\n",
+A partir de agora, vamos considerar que chegamos num ponto no qual a gente pode iniciar os trabalhos com as variáveis já identificadas como relevantes para o processo."
