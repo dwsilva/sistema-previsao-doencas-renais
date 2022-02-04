@@ -45,7 +45,7 @@ Os dados foram obtidos através de um arquivos .csv contendo informações dos p
 <p>
 Abaixo temos um dicionário contendo informações sobre os dados disponibilizaods e a arquitetura deles.
 
-![](src/dicionario de dados do arquivo.png)
+![](src/dicionario_de_dados_do_arquivo.png)
 </p>
 <p>
 Foi identificado que a coluna 'classification' contém a informação sobre a presença ou não de alguma doença renal no paciente.
