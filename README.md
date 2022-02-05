@@ -1,7 +1,27 @@
 # Sistema de Previsão de Doenças Renais
 
 Este sistema utilizará Aprendizado de Máquina para informar se um paciente tem predisposição para possuir alguma doneça
-renal
+renal.
+Este projeto foi desenvolvido com a finalidade de validar o entendimento e o exercitar após assistir as aulas da Jornada Ciência de Dados. 
+
+## Fonte de Dados - Dataset
+
+[Chronic Kidney Disease Dataset](https://archive.ics.uci.edu/ml/datasets/Chronic_Kidney_Disease)
+
+## Descrição do Dataset 
+
+[Download Description](https://archive.ics.uci.edu/ml/datasets/Chronic_Kidney_Disease#)
+
+## Tecnologias Utilizadas
+
+- Python
+- Machine Learning
+- Pandas
+- Numpy
+- Scikit-learn
+- Flask
+- HTML
+- CSS
 
 ## Problemática do Negócio
 
@@ -45,7 +65,7 @@ Os dados foram obtidos através de um arquivos .csv contendo informações dos p
 <p>
 Abaixo temos um dicionário contendo informações sobre os dados disponibilizaods e a arquitetura deles.
 
-![](src/dicionario_de_dados_do_arquivo.png)
+![](src/images/dicionario_de_dados_do_arquivo.png)
 </p>
 <p>
 Foi identificado que a coluna 'classification' contém a informação sobre a presença ou não de alguma doença renal no paciente.
@@ -78,10 +98,10 @@ Nesta etapa foram realizadas as seguintes tratativas:
     <li>
     Criei um gráfico heatmap para verificar se existem variáveis multicolineares, 
     com isso foi possível identificar que as variaveis 'pcv' e 'hemo' possuem 85% de 
-    multicolinearidade (ver imagem abaixo);
-
-![](src/grafico.png)
+    multicolinearidade (ver imagem abaixo);</br></br>
     </li>
+
+![](src/images/grafico.png)
     <li>
     Optei por remover a variável 'pcv' do modelo por conta da multicolinearidade com a variável 'hemo';
     </li>
@@ -108,12 +128,45 @@ Nesta etapa foram realizados os seguintes procedimentos:
     Utilizei dois algoritmos para comparação e escolha do que possuir melhor acurácia. Um com RandomForest e outro com GradientBoosting;
     </li>
     <li>
-    Os resultados de acurácia foram bem próximos, porém o primeiro modelo foi melhor que o segundo;
-    
-![](src/acuracia.jpg)
+    Os resultados de acurácia foram bem próximos, porém o primeiro modelo foi melhor que o segundo;</br></br>
     </li>
+
+![](src/images/acuracia.jpg)
     <li>
     Realizei a explortação de ambos os modelos utilizando pickle.
     </li>
 </ul>
 
+- Foi criado o arquivo app.py, onde será utilizado Flask para renderizar uma página html com um formulario para inserção dos dados:</br></br>
+![](src/images/tela_do_sistema.png)</br></br>
+- Após o processamento dos dados inseridos, o resultado será mostrado na página result.html de acordo com o resultado retornado pela máquina preditiva:</br></br>
+  - Resultado se saudável:
+  ![](src/images/resultado_se_saudavel.png)</br></br>
+  - Resultado se não saudável:</br></br>
+  ![](src/images/resultado_se_nao-saudavel.png)
+
+## Parâmetros para testes
+
+### Pessoa saudável
+
+- Utilize os valores conforme mostrados na imagem abaixo:
+![](src/images/paciente_saudavel.png)
+
+### Pessoa não saudável
+
+- Utilize os valores conforme mostrados na imagem abaixo:
+![](src/images/paciente_doente.png)
+
+## Como executar o sistema - Running Tests
+
+Para rodar o sistema, basta digitar o comando abaixo npor linha de comando: 
+
+```
+python app.py (tecle enter)
+```
+
+- Após executar o app.py por linha de comando, será mostrada uma mensagem infromando que o servidor estará on-line e pronto para uso, basta entrar no endereço http://127.0.0.1:5000/ em qualquer navegador para ir para a página inicial.
+
+# Fim...
+- David Couto
+- coutodwsc@gmail.com

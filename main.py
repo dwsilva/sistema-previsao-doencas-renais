@@ -101,7 +101,7 @@ dataset['appet'] = dataset['appet'].replace(to_replace={'good':1,'poor':0,'no':n
 dataset['pe'] = dataset['pe'].replace(to_replace = {'yes' : 1, 'no' : 0})
 dataset['ane'] = dataset['ane'].replace(to_replace = {'yes' : 1, 'no' : 0})
 dataset['classification'] = dataset['classification'].replace(to_replace={'ckd\t':'ckd'})
-dataset['classification'] = dataset['classification'].replace(to_replace = {'ckd' : 1, 'notckd' : 0})
+dataset["classification"] = [1 if i == "ckd" else 0 for i in dataset["classification"]]
 dataset['pcv'] = pd.to_numeric(dataset['pcv'], errors='coerce')
 dataset['wc'] = pd.to_numeric(dataset['wc'], errors='coerce')
 dataset['rc'] = pd.to_numeric(dataset['rc'], errors='coerce')
@@ -137,16 +137,16 @@ plt.show()
 dataset.drop('pcv', axis= 1, inplace= True)
 
 # Definindo as variaveis explicativas e o target
-x = dataset.iloc[:, :-1]
+X = dataset.iloc[:, :-1]
 y = dataset.iloc[:, -1]
 
 # Criando algoritmo de predição
 # Utilizando ExtraTree para mostrar as variaveis mais importantes para o modelo
 model = ExtraTreesClassifier()
-model.fit(x, y)
+model.fit(X, y)
 
 plt.figure(figsize=(8, 6))
-ranked_features = pd.Series(model.feature_importances_, index=x.columns)
+ranked_features = pd.Series(model.feature_importances_, index=X.columns)
 ranked_features.nlargest(24).plot(kind='barh')
 plt.show()
 
@@ -154,7 +154,7 @@ plt.show()
 print(ranked_features.nlargest(10).index)
 
 # Separando as 10 variaveis em uma variavel para treinamento do algoritmo
-X = dataset[['sg', 'htn', 'dm', 'hemo', 'al', 'appet', 'rc', 'pc', 'pe', 'sc']]
+X = dataset[['sg', 'htn', 'hemo', 'dm', 'al', 'appet', 'rc', 'pc', 'sc', 'pe']]
 print(X.head()) # 5 primeiros registros
 print(X.tail()) # últimos registros
 print(y.head()) # Verificando o target
@@ -193,7 +193,8 @@ print('Accuracy GradientBossting: ', accuracy_score(y_test, y_pred2))
 print(classification_report(y_test, y_pred2))
 
 # Exportando as maquinas preditivas
-filenameRandom = 'Maquina_Preditiva_Random.pk1'
-filenameGradient = 'Maquina_Preditiva_Gradient.pk1'
+filenameRandom = 'Maquina_Preditiva_Random.pkl'
 pickle.dump(RandomForest, open(filenameRandom, 'wb'))
+
+filenameGradient = 'Maquina_Preditiva_Gradient.pkl'
 pickle.dump(GradientBoosting, open(filenameGradient, 'wb'))
